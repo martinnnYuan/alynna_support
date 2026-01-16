@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Support</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #f7f1ff 0, #f5f7ff 35%, #f4fbff 60%, #f0fff8 100%);
+      --panel: #ffffff;
+      --accent: #ff7043;
+      --accent-strong: #ff5c2b;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      font-family: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .shell {
+      width: min(1100px, 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      position: relative;
+      background: var(--panel);
+      border-radius: 24px;
+      padding: 32px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(650px circle at 10% 20%, rgba(255, 112, 67, 0.08), transparent 45%),
+                  radial-gradient(520px circle at 90% 0%, rgba(52, 211, 153, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 112, 67, 0.12), rgba(52, 211, 153, 0.12));
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .pill span {
+      background: #fff;
+      color: var(--accent-strong);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(255, 112, 67, 0.25);
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(32px, 3vw, 42px);
+      line-height: 1.15;
+    }
+
+    .lead {
+      margin: 0 0 26px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 36ch;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .highlight-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .highlight-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    }
+
+    .highlight-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .form-card {
+      background: var(--panel);
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px 14px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #f9fafb;
+      transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px rgba(255, 112, 67, 0.12);
+      transform: translateY(-1px);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+      background: linear-gradient(180deg, #fff, #f9fafb);
+    }
+
+    .chat-bubble {
+      position: relative;
+    }
+
+    .chat-bubble::after {
+      content: '⇢ Tell us what happened…';
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      color: #9ca3af;
+      pointer-events: none;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    textarea:placeholder-shown + .chat-bubble::after {
+      opacity: 1;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      padding: 16px;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(255, 112, 67, 0.24);
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(255, 112, 67, 0.28);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 18px rgba(255, 112, 67, 0.22);
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 20px;
+    }
+
+    .status.success {
+      color: #16a34a;
+    }
+
+    .status.error {
+      color: #dc2626;
+    }
+
+    @media (max-width: 980px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px;
+      }
+
+      .shell {
+        padding: 18px;
+      }
+
+      .form-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="pill"><span>✺</span>App Support Desk</div>
+      <h1>Tell us what went wrong, we’ll make it right.</h1>
+      <p class="lead">
+        Report issues you meet in the iOS app. Leave your contact email and details; we’ll respond and keep you updated as we fix things.
+      </p>
+      <div class="highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">24</div>
+          <p class="highlight-text">Replies land in <strong>martinyuan04@gmail.com</strong> so nothing slips.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">QA</div>
+          <p class="highlight-text">Include device, OS, and steps to reproduce for faster resolutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <form id="support-form" novalidate>
+        <div class="form-grid">
+          <div>
+            <label for="name">Your name *</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="How should we address you?">
+          </div>
+          <div>
+            <label for="email">Email for follow-up *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="appVersion">App version</label>
+            <input id="appVersion" name="appVersion" placeholder="e.g. 1.2.0">
+          </div>
+          <div>
+            <label for="device">Device & iOS</label>
+            <input id="device" name="device" placeholder="e.g. iPhone 14, iOS 17.5">
+          </div>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <label for="topic">Issue type</label>
+          <select id="topic" name="topic">
+            <option value="bug">Bug / Error</option>
+            <option value="performance">Performance</option>
+            <option value="feature">Feature request</option>
+            <option value="billing">Billing / subscription</option>
+            <option value="other" selected>Other</option>
+          </select>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <label for="details">Describe the issue *</label>
+          <textarea id="details" name="details" required placeholder="What happened? What were you trying to do? Any steps to reproduce?"></textarea>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <button type="submit">Send to Support</button>
+          <div id="status" class="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      const form = document.getElementById('support-form');
+      const statusEl = document.getElementById('status');
+
+      // POST directly to an email-forwarding service; adjust endpoint if you prefer your own.
+      const SUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/martinyuan04@gmail.com';
+
+      const setStatus = (message, type = '') => {
+        statusEl.textContent = message;
+        statusEl.className = `status ${type}`;
+      };
+
+      const buildMailtoUrl = (payload) => {
+        const subject = encodeURIComponent(`App Support: ${payload.topic || 'Issue'}`);
+        const bodyLines = [
+          `Name: ${payload.name}`,
+          `Email: ${payload.email}`,
+          `App version: ${payload.appVersion || 'n/a'}`,
+          `Device & iOS: ${payload.device || 'n/a'}`,
+          `Issue type: ${payload.topic}`,
+          '',
+          'Details:',
+          payload.details
+        ];
+        const body = encodeURIComponent(bodyLines.join('\\n'));
+        return `mailto:martinyuan04@gmail.com?subject=${subject}&body=${body}`;
+      };
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setStatus('');
+
+        if (!form.reportValidity()) {
+          setStatus('Please fill in the required fields.', 'error');
+          return;
+        }
+
+        const data = Object.fromEntries(new FormData(form));
+        const payload = {
+          name: data.name?.trim(),
+          email: data.email?.trim(),
+          appVersion: data.appVersion?.trim(),
+          device: data.device?.trim(),
+          topic: data.topic,
+          details: data.details?.trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.details) {
+          setStatus('Name, email, and issue details are required.', 'error');
+          return;
+        }
+
+        try {
+          const res = await fetch(SUBMIT_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('Network response was not ok');
+          setStatus('Sent! We will reply to your email shortly.', 'success');
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          setStatus('Could not send right now. Please try again or email us directly.', 'error');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
