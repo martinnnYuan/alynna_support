@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="description" content="Alynna Privacy Policy — how we collect, use, store, and protect your data." />
+  <title>Alynna — Privacy Policy</title>
+
+  <!-- Fonts (optional). If you prefer local-only fonts, remove these lines. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b0b0f;
+      --bg2:#0f1018;
+      --card: rgba(255,255,255,.05);
+      --card2: rgba(255,255,255,.08);
+      --stroke: rgba(230,217,189,.18);
+      --text: rgba(230,217,189,.92);        /* #E6D9BD */
+      --muted: rgba(230,217,189,.68);
+      --faint: rgba(230,217,189,.45);
+      --accent: rgba(230,217,189,.92);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(230,217,189,.08), transparent 60%),
+                  radial-gradient(900px 600px at 80% 25%, rgba(230,217,189,.06), transparent 60%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.55;
+      letter-spacing: .2px;
+      overflow-x:hidden;
+    }
+
+    /* Star canvas */
+    #stars{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:-1;
+      opacity:.6;
+      pointer-events:none;
+      filter: blur(.0px);
+    }
+
+    a{color: var(--accent); text-decoration:none}
+    a:hover{opacity:.85; text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 90px}
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(11,11,15,.88), rgba(11,11,15,.55));
+      border-bottom: 1px solid rgba(230,217,189,.12);
+    }
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 210px;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(230,217,189,.35), rgba(230,217,189,.06));
+      border: 1px solid rgba(230,217,189,.22);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      flex:none;
+    }
+    .logo svg{opacity:.95}
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand-title .name{
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing:.6px;
+    }
+    .brand-title .sub{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    nav{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid rgba(230,217,189,.18);
+      background: rgba(255,255,255,.03);
+      padding:8px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(230,217,189,.28);
+      background: rgba(255,255,255,.05);
+      text-decoration:none;
+      color: var(--text);
+    }
+
+    .hero{
+      padding: 26px 0 14px;
+    }
+    .kicker{
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      margin: 18px 0 10px;
+    }
+    h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(30px, 4.2vw, 46px);
+      line-height: 1.12;
+      margin: 0 0 10px;
+      letter-spacing: .6px;
+    }
+    .lede{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 72ch;
+      margin: 0 0 18px;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .dot{opacity:.6}
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 940px){
+      .grid{grid-template-columns: 1fr}
+      .brand{min-width:auto}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid rgba(230,217,189,.16);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card-inner{padding: 18px 18px}
+    .card h2{
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: .4px;
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+    .card p{margin: 0 0 10px; color: var(--muted)}
+    .card ul{margin: 10px 0 0 18px; color: var(--muted)}
+    .card li{margin: 6px 0}
+
+    .summary{
+      display:grid;
+      gap: 10px;
+    }
+    .summary .row{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(230,217,189,.14);
+      background: rgba(255,255,255,.03);
+    }
+    .icon{
+      width: 28px; height: 28px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(230,217,189,.18);
+      background: radial-gradient(circle at 30% 30%, rgba(230,217,189,.20), rgba(230,217,189,.04));
+      flex:none;
+      margin-top: 1px;
+    }
+    .row b{color: var(--text)}
+    .row .txt{font-size: 14px; color: var(--muted)}
+    .hint{
+      font-size: 12px; color: var(--faint);
+      margin-top: 10px;
+    }
+
+    /* Accordion sections */
+    .sections{margin-top: 16px}
+    .section{
+      border-top: 1px solid rgba(230,217,189,.12);
+      padding: 8px 0;
+    }
+    .section:first-child{border-top: none}
+    .sec-btn{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 12px 8px;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      cursor:pointer;
+      text-align:left;
+      font-family: var(--sans);
+    }
+    .sec-title{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .sec-title strong{
+      font-size: 15px;
+      letter-spacing:.2px;
+    }
+    .sec-title span{
+      font-size: 12px;
+      color: var(--faint);
+    }
+    .chev{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(230,217,189,.16);
+      background: rgba(255,255,255,.03);
+      display:grid; place-items:center;
+      flex:none;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+    .section[data-open="true"] .chev{
+      transform: rotate(180deg);
+      border-color: rgba(230,217,189,.26);
+      background: rgba(255,255,255,.05);
+    }
+    .sec-panel{
+      padding: 0 10px 12px;
+      display:none;
+      color: var(--muted);
+      max-width: 90ch;
+    }
+    .section[data-open="true"] .sec-panel{display:block}
+    .sec-panel h3{
+      margin: 12px 0 6px;
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--text);
+      letter-spacing: .3px;
+    }
+    .sec-panel p{margin: 8px 0}
+    .sec-panel ul{margin: 8px 0 8px 18px}
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text);
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(230,217,189,.16);
+      background: rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .callout{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(230,217,189,.18);
+      background: rgba(230,217,189,.05);
+      color: var(--muted);
+    }
+    .callout b{color: var(--text)}
+    .small{font-size: 13px}
+    .mono{font-family: var(--mono)}
+    .footer{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(230,217,189,.12);
+      color: var(--faint);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size: 12px;
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(11,11,15,.88);
+      border: 1px solid rgba(230,217,189,.20);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      backdrop-filter: blur(14px);
+    }
+    .toast.show{
+      opacity:1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Minimal star glyph -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z"
+                  stroke="rgba(230,217,189,.92)" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <div class="name">Alynna</div>
+          <div class="sub">Privacy Policy</div>
+        </div>
+      </div>
+
+      <nav aria-label="Page navigation">
+        <a class="pill" href="#summary">Summary</a>
+        <a class="pill" href="#policy">Policy</a>
+        <a class="pill" href="#choices">Your Choices</a>
+        <a class="pill" href="#contact">Contact</a>
+        <button class="pill" id="copyLink" type="button" title="Copy this page link">Copy Link</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div class="kicker">YOUR ENERGY COMPANION</div>
+      <h1 id="title">Alynna Privacy Policy</h1>
+      <p class="lede">
+        Alynna blends astrology with spatial context to offer one gentle daily cue —
+        an energy phrase (a “mantra”) plus recommendations such as colors, sounds, and rhythms.
+        This page explains what data Aligna uses, why, and how you stay in control.
+      </p>
+      <div class="meta">
+        <span>Last updated: <span class="mono">2026-01-22</span></span>
+        <span class="dot">•</span>
+        <span>Public page — no login required</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <!-- Summary card -->
+      <article class="card" id="summary" aria-labelledby="summaryTitle">
+        <div class="card-inner">
+          <h2 id="summaryTitle">Privacy Summary</h2>
+          <p>
+            We respect your privacy. Alynna is designed to provide personalized daily recommendations
+            while minimizing data use and avoiding advertising tracking.
+          </p>
+
+          <div class="summary" role="list">
+            <div class="row" role="listitem">
+              <div class="icon" aria-hidden="true">🔒</div>
+              <div class="txt"><b>We do not sell your personal data.</b> We do not share your data with third parties for their own marketing.</div>
+            </div>
+            <div class="row" role="listitem">
+              <div class="icon" aria-hidden="true">🚫</div>
+              <div class="txt"><b>No advertising tracking.</b> We don’t use your data to track you across other companies’ apps or websites.</div>
+            </div>
+            <div class="row" role="listitem">
+              <div class="icon" aria-hidden="true">📍</div>
+              <div class="txt"><b>Location is optional.</b> You can deny location permission; some features may fall back to default recommendations.</div>
+            </div>
+            <div class="row" role="listitem">
+              <div class="icon" aria-hidden="true">☁️</div>
+              <div class="txt"><b>Some data may be processed by our backend/cloud services</b> to generate and store your daily recommendation history.</div>
+            </div>
+          </div>
+
+          <div class="callout small" style="margin-top:12px">
+            <b>Important:</b> To generate recommendations, Alynna may send limited inputs (such as your latitude/longitude and birth info)
+            to our recommendation service, and store results in our database so you can revisit your history.
+          </div>
+
+          <p class="hint">
+            Tip: Use your iPhone Settings to control Location access at any time.
+          </p>
+        </div>
+      </article>
+
+      <!-- Quick facts / App intent -->
+      <aside class="card" aria-labelledby="aboutTitle">
+        <div class="card-inner">
+          <h2 id="aboutTitle">What Alynna Does</h2>
+          <ul>
+            <li><b>Astrology integration:</b> your natal chart provides a personalization foundation.</li>
+            <li><b>Spatial context:</b> your device location may be used to tailor the day’s recommendation.</li>
+            <li><b>Daily recommendations:</b> mantra + suggestions (colors, sounds, rhythms).</li>
+            <li><b>Inner balance:</b> one gentle cue a day to support your rhythm.</li>
+          </ul>
+
+          <div class="callout small">
+            <b>Service stack (typical):</b> Recommendation API + cloud database for history (e.g., Firebase).
+            We only use these to deliver core features and security.
+          </div>
+
+          <p class="small">
+            Looking for the full policy? Jump to <a href="#policy">Policy</a>.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Policy accordion -->
+    <section class="card" id="policy" aria-labelledby="policyTitle" style="margin-top:16px">
+      <div class="card-inner">
+        <h2 id="policyTitle">Full Privacy Policy</h2>
+        <p>Expand each section to view details.</p>
+
+        <div class="sections">
+          <div class="section" data-open="true">
+            <button class="sec-btn" type="button" aria-expanded="true">
+              <div class="sec-title">
+                <strong>1) What Alynna Is</strong>
+                <span>Purpose & guiding idea</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p>
+                Alynna is an “energy companion” app that blends astrology with spatial context to provide
+                one gentle daily cue — an energy phrase (“mantra”) plus recommendations such as colors, sounds, and rhythms.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>2) Data We Use</strong>
+                <span>Account, profile, location, and daily content</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <h3>A. Account & Identifiers</h3>
+              <p>
+                If you sign in, we use authentication services (such as Apple Sign In or Google Sign-In via Firebase Authentication).
+                This may involve a unique user ID and, depending on your sign-in method, an email address.
+              </p>
+
+              <h3>B. Profile & Birth Info</h3>
+              <p>
+                To provide astrology-based personalization, Alynna may store your nickname and birth information
+                (birth date, birth time, and birth place). This supports chart-based personalization.
+              </p>
+
+              <h3>C. Location (Optional)</h3>
+              <p>
+                If you grant permission, Alynna may read your device’s location to tailor the daily recommendation.
+                You can disable location at any time; the app may fall back to default recommendations.
+              </p>
+
+              <h3>D. Daily Recommendations & History</h3>
+              <p>
+                Alynna stores your daily recommendation results so you can revisit your history. This may include the mantra text,
+                recommendation fields (e.g., place/color/sound/rhythm), and the date created.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>3) How We Use Data</strong>
+                <span>Why we process each category</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <ul>
+                <li><b>Authentication:</b> to let you sign in and keep your account secure.</li>
+                <li><b>Personalization:</b> to generate your daily mantra and recommendations.</li>
+                <li><b>History:</b> to save results so you can revisit your timeline/calendar.</li>
+                <li><b>Reliability & security:</b> to keep the service stable and prevent abuse.</li>
+              </ul>
+              <div class="callout small">
+                <b>No ads tracking:</b> we do not use your data to track you across other companies’ apps or websites.
+              </div>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>4) Backend & Third-Party Services</strong>
+                <span>Recommendation API, cloud storage, and sign-in</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <h3>A. Recommendation API</h3>
+              <p>
+                When you generate recommendations, Alynna may send limited inputs to our recommendation service,
+                such as <span class="kbd">latitude</span>, <span class="kbd">longitude</span>, and birth information,
+                to compute and return your daily results.
+              </p>
+
+              <h3>B. Cloud Services (e.g., Firebase)</h3>
+              <p>
+                We may use cloud services for authentication and storing your profile and recommendation history
+                so you can access it across sessions and devices.
+              </p>
+
+              <div class="callout small">
+                <b>We do not sell personal data.</b> We do not share your data with third parties for their own marketing.
+              </div>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>5) Data Retention</strong>
+                <span>How long data is stored</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p>
+                Profile data and daily recommendations are stored for as long as your account remains active,
+                so you can revisit your history. If you delete your account, we will delete or anonymize data associated
+                with your account where applicable, subject to technical and legal constraints.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false" id="choices">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>6) Your Choices & Controls</strong>
+                <span>Permissions, access, and deletion</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <h3>Location Permission</h3>
+              <p>
+                You can enable/disable Location at any time in iOS Settings:
+              </p>
+              <p class="mono small">
+                Settings → Privacy &amp; Security → Location Services → Aligna
+              </p>
+              <p>
+                If Location is disabled, some features may fall back to default or less location-specific recommendations.
+              </p>
+
+              <h3>Access & Deletion</h3>
+              <p>
+                You may request access to or deletion of your data by contacting us. If the app provides an in-app account deletion option,
+                you can also use that feature.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>7) Security</strong>
+                <span>Safeguards and limitations</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p>
+                We use reasonable administrative, technical, and physical safeguards designed to protect your data.
+                No method of transmission or storage is 100% secure, but we work to protect your information.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>8) Children</strong>
+                <span>Age requirements</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p>
+                Alynna is not intended for children under 13 (or the minimum age required in your jurisdiction).
+                We do not knowingly collect data from children.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="false">
+            <button class="sec-btn" type="button" aria-expanded="false">
+              <div class="sec-title">
+                <strong>9) Changes to This Policy</strong>
+                <span>How updates are handled</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p>
+                We may update this policy from time to time. We will change the “Last updated” date at the top of this page and,
+                if the changes are material, provide additional notice within the app.
+              </p>
+            </div>
+          </div>
+
+          <div class="section" data-open="true" id="contact">
+            <button class="sec-btn" type="button" aria-expanded="true">
+              <div class="sec-title">
+                <strong>10) Contact</strong>
+                <span>Support email & company info</span>
+              </div>
+              <div class="chev" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="rgba(230,217,189,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="sec-panel">
+              <p><b>Locaphilia llc</b></p>
+              <p>Email: <a href="mailto:[SupportEmail]">aligna@locaphilia.com</a></p>
+
+              <div class="callout small">
+                If you have questions about privacy or would like to request access or deletion, please email us with
+                the subject line <span class="kbd">Privacy Request</span>.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="footer" role="contentinfo">
+      <div>© <span id="year"></span> Alynna. All rights reserved.</div>
+      <div class="mono">This page uses no cookies and performs no tracking.</div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied.</div>
+
+  <script>
+    // ---------- Accordion ----------
+    (function(){
+      const sections = Array.from(document.querySelectorAll('.section'));
+      sections.forEach(sec => {
+        const btn = sec.querySelector('.sec-btn');
+        btn.addEventListener('click', () => {
+          const isOpen = sec.getAttribute('data-open') === 'true';
+          sec.setAttribute('data-open', String(!isOpen));
+          btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      });
+
+      // Ensure aria-expanded matches initial data-open
+      sections.forEach(sec => {
+        const btn = sec.querySelector('.sec-btn');
+        const isOpen = sec.getAttribute('data-open') === 'true';
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+
+    // ---------- Smooth scroll for hash links ----------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', id);
+      });
+    });
+
+    // ---------- Copy link ----------
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 1200);
+    }
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(window.location.href);
+        showToast('Link copied.');
+      } catch(e){
+        // Fallback
+        const t = document.createElement('textarea');
+        t.value = window.location.href;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        showToast('Link copied.');
+      }
+    });
+
+    // ---------- Year ----------
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---------- Starfield background ----------
+    (function(){
+      const canvas = document.getElementById('stars');
+      const ctx = canvas.getContext('2d', { alpha: true });
+
+      let W, H, DPR;
+      let stars = [];
+      const STAR_COUNT = 120;
+
+      function resize(){
+        DPR = Math.min(window.devicePixelRatio || 1, 2);
+        W = canvas.width = Math.floor(window.innerWidth * DPR);
+        H = canvas.height = Math.floor(window.innerHeight * DPR);
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(1,0,0,1,0,0);
+        ctx.scale(DPR, DPR);
+
+        // Re-seed stars for the new size (in CSS pixels)
+        stars = Array.from({length: STAR_COUNT}, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: Math.random() * 1.4 + 0.2,
+          a: Math.random() * 0.55 + 0.10,
+          tw: Math.random() * 0.018 + 0.004,
+          vx: (Math.random() - 0.5) * 0.06,
+          vy: (Math.random() - 0.5) * 0.06
+        }));
+      }
+
+      function draw(){
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        // subtle vignette
+        const g = ctx.createRadialGradient(
+          window.innerWidth * 0.5, window.innerHeight * 0.45, 50,
+          window.innerWidth * 0.5, window.innerHeight * 0.45, Math.max(window.innerWidth, window.innerHeight)
+        );
+        g.addColorStop(0, 'rgba(230,217,189,0.045)');
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0,0,window.innerWidth, window.innerHeight);
+
+        for(const s of stars){
+          // twinkle
+          s.a += s.tw * (Math.random() > 0.5 ? 1 : -1);
+          s.a = Math.max(0.06, Math.min(0.65, s.a));
+
+          // drift
+          s.x += s.vx;
+          s.y += s.vy;
+          if(s.x < -10) s.x = window.innerWidth + 10;
+          if(s.x > window.innerWidth + 10) s.x = -10;
+          if(s.y < -10) s.y = window.innerHeight + 10;
+          if(s.y > window.innerHeight + 10) s.y = -10;
+
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(230,217,189,${s.a})`;
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+      draw();
+    })();
+  </script>
+</body>
+</html>
